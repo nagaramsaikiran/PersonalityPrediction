@@ -9,20 +9,20 @@ public class CandidateDTO {
 
 	private String name;
 	private long candidateId;
-	private List<Skill> skills;
+	private List<Integer> skillIds;
 	private int experience;
 
 	public CandidateDTO() {
-			super();
-		}
+		super();
+	}
 
-	public CandidateDTO(String name, int candidateId, ArrayList<Skill> skills, int experience) {
-			super();
-			this.name = name;
-			this.candidateId = candidateId;
-			this.skills = skills;
-			this.experience = experience;
-		}
+	public CandidateDTO(String name, int candidateId, ArrayList<Integer> skills, int experience) {
+		super();
+		this.name = name;
+		this.candidateId = candidateId;
+		this.skillIds = skills;
+		this.experience = experience;
+	}
 
 	public long getCandidateId() {
 		return candidateId;
@@ -40,12 +40,12 @@ public class CandidateDTO {
 		this.name = name;
 	}
 
-	public List<Skill> getSkills() {
-		return skills;
+	public List<Integer> getSkillIds() {
+		return skillIds;
 	}
 
-	public void setSkills(List<Skill> skills) {
-		this.skills = skills;
+	public void setSkillIds(List<Integer> skillIds) {
+		this.skillIds = skillIds;
 	}
 
 	public int getExperience() {

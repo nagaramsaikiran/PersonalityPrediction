@@ -1,19 +1,26 @@
-package com.capgemini.personality.entity;
+package com.capgemini.personality.model;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.capgemini.personality.entity.Skill;
 
-@Entity
-@Table(name = "JobDetails")
-public class JobDetails {
-	@Id
+public class JobDetailsDTO {
 	private long jobId;
 	private String role;
 	private List<Integer> skillIds;
 	private int experience;
+
+	public JobDetailsDTO() {
+		super();
+	}
+
+	public JobDetailsDTO(long jobId, String role, List<Integer> skills, int experience) {
+		super();
+		this.jobId = jobId;
+		this.role = role;
+		this.skillIds = skills;
+		this.experience = experience;
+	}
 
 	public long getJobId() {
 		return jobId;
@@ -21,18 +28,6 @@ public class JobDetails {
 
 	public void setJobId(long jobId) {
 		this.jobId = jobId;
-	}
-
-	public JobDetails() {
-		super();
-	}
-
-	public JobDetails(long jobId, String role, List<Integer> skills, int experience) {
-		super();
-		this.jobId = jobId;
-		this.role = role;
-		this.skillIds = skills;
-		this.experience = experience;
 	}
 
 	public String getRole() {

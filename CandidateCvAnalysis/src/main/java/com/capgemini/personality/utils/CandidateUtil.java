@@ -18,7 +18,7 @@ public class CandidateUtil {
 		Candidate candidate = new Candidate();
 		candidate.setName(candidatedto.getName());
 		candidate.setCandidateId(candidatedto.getCandidateId());
-		candidate.setSkills(candidatedto.getSkills());
+		candidate.setSkillIds(candidatedto.getSkillIds());
 		candidate.setExperience(candidatedto.getExperience());
 		return candidate;
 	}
@@ -27,7 +27,7 @@ public class CandidateUtil {
 		CandidateDTO candidateDTO = new CandidateDTO();
 		candidateDTO.setName(candidate.getName());
 		candidateDTO.setCandidateId(candidate.getCandidateId());
-		candidateDTO.setSkills(candidate.getSkills());
+		candidateDTO.setSkillIds(candidate.getSkillIds());
 		candidateDTO.setExperience(candidate.getExperience());
 		return candidateDTO;
 	}

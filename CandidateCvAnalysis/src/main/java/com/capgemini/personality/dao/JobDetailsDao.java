@@ -14,9 +14,9 @@ public class JobDetailsDao implements Dao<JobDetails> {
 	private EntityManager entityManager;
 
 	@Override
-	public Optional<JobDetails> get(long jobId) {
+	public JobDetails get(long jobId) {
 		// TODO Auto-generated method stub
-		return Optional.ofNullable(entityManager.find(JobDetails.class, jobId));
+		return entityManager.find(JobDetails.class, jobId);
 	}
 
 	@Override
@@ -26,9 +26,8 @@ public class JobDetailsDao implements Dao<JobDetails> {
 	}
 
 	@Override
-	public void update(JobDetails jobDetails, String[] params) {
-		jobDetails.setName(Objects.requireNonNull(params[0], "Id cannot be null"));
-
+	public void update(JobDetails jobDetails) {
+		executeInsideTransaction(entityManager -> entityManager.merge(jobDetails));
 	}
 
 	@Override

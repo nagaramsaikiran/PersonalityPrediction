@@ -5,17 +5,29 @@ import javax.persistence.Id;
 
 @Entity
 public class Skill {
-	@Id
-	private String skillName;
 
-	public Skill(String skillName) {
-		super();
-		this.skillName = skillName;
-	}
+	private String skillName;
+	@Id
+	private String skillId;
 
 	public Skill() {
 		super();
 	}
+
+	public Skill(String skillName, String skillId) {
+		super();
+		this.skillName = skillName;
+		this.skillId = skillId;
+	}
+
+	public String getSkillId() {
+		return skillId;
+	}
+
+	public void setSkillId(String skillId) {
+		this.skillId = skillId;
+	}
+
 
 	public String getSkillName() {
 		return skillName;

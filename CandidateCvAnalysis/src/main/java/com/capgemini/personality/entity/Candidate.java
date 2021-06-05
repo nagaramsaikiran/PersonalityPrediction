@@ -8,13 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CandidateDetails")
+@Table(name = "CandidateDetails")
 public class Candidate {
 	private String name;
 	@Id
 	private long candidateId;
-	@ElementCollection
-	private List<Skill> skills;
+	private List<Integer> skillIds;
 	private int experience;
 
 	public Candidate() {
@@ -29,11 +28,11 @@ public class Candidate {
 		this.candidateId = candidateId;
 	}
 
-	public Candidate(String name, int candidateId, List<Skill> skills, int experience) {
+	public Candidate(String name, int candidateId, List<Integer> skills, int experience) {
 		super();
 		this.name = name;
 		this.candidateId = candidateId;
-		this.skills = skills;
+		this.skillIds = skills;
 		this.experience = experience;
 	}
 
@@ -45,12 +44,12 @@ public class Candidate {
 		this.name = name;
 	}
 
-	public List<Skill> getSkills() {
-		return skills;
+	public List<Integer> getSkillIds() {
+		return skillIds;
 	}
 
-	public void setSkills(List<Skill> skills) {
-		this.skills = skills;
+	public void setSkillIds(List<Integer> skillIds) {
+		this.skillIds = skillIds;
 	}
 
 	public int getExperience() {

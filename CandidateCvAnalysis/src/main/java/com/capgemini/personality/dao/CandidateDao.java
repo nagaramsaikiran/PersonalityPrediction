@@ -1,8 +1,6 @@
 package com.capgemini.personality.dao;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.function.Consumer;
 
 import javax.persistence.EntityManager;
@@ -15,9 +13,9 @@ public class CandidateDao implements Dao<Candidate> {
 	private EntityManager entityManager;
 
 	@Override
-	public Optional<Candidate> get(long id) {
+	public Candidate get(long id) {
 		// TODO Auto-generated method stub
-		return Optional.ofNullable(entityManager.find(Candidate.class,id));
+		return entityManager.find(Candidate.class,id);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -35,9 +33,8 @@ public class CandidateDao implements Dao<Candidate> {
 	}
 
 	@Override
-	public void update(Candidate candidate, String[] params) {
-		candidate.setName(Objects.requireNonNull(params[0], "Id cannot be null"));
-
+	public void update(Candidate candidate) {
+		executeInsideTransaction(entityManager -> entityManager.merge(candidate));
 	}
 
 	@Override
