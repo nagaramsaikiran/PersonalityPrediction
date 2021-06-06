@@ -1,14 +1,19 @@
 package com.capgemini.personality.service;
 
+import java.util.List;
+
 import com.capgemini.personality.entity.JobDetails;
+import com.capgemini.personality.model.JobDetailsDTO;
 
 public interface IJobDetailsService {
-	public JobDetails getCandiadte(long id);
+	public List<JobDetailsDTO> getAllJobDetails();
+	
+	public JobDetailsDTO getJobDetails(long id);
 
-	public JobDetails addCandidate(JobDetails candidate);
+	public JobDetailsDTO addJobDetails(JobDetails jobDetails);
 
-	public JobDetails updateCandidate(long id, JobDetails candidate);
+	public JobDetailsDTO updateJobDetails(long id, JobDetails jobDetails);
 
-	public JobDetails deleteCandidate(long id);
+	public JobDetailsDTO deleteJobDetails(long id);
 
 }

@@ -6,16 +6,20 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import org.springframework.stereotype.Repository;
 
 import com.capgemini.personality.entity.JobDetails;
 
+@Repository
 public class JobDetailsDao implements Dao<JobDetails> {
+	@PersistenceContext 
 	private EntityManager entityManager;
 
 	@Override
 	public JobDetails get(long jobId) {
-		// TODO Auto-generated method stub
 		return entityManager.find(JobDetails.class, jobId);
 	}
 
@@ -40,7 +44,7 @@ public class JobDetailsDao implements Dao<JobDetails> {
 	@Override
 	public List<JobDetails> getAll() {
 
-		Query query = entityManager.createQuery("SELECT * FROM JobDetails ");
+		Query query = entityManager.createQuery("SELECT j FROM JobDetails j ");
 		return query.getResultList();
 	}
 

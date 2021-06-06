@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +15,10 @@ public class Candidate {
 	private String name;
 	@Id
 	private long candidateId;
-	private List<Integer> skillIds;
+	@OneToMany
+	private List<Skill> skills;
+	@ManyToMany(mappedBy = "appliedCandidates")
+	private List<JobDetails> appliedJobs;
 	private int experience;
 
 	public Candidate() {
@@ -28,11 +33,11 @@ public class Candidate {
 		this.candidateId = candidateId;
 	}
 
-	public Candidate(String name, int candidateId, List<Integer> skills, int experience) {
+	public Candidate(String name, int candidateId, List<Skill> skills, int experience) {
 		super();
 		this.name = name;
 		this.candidateId = candidateId;
-		this.skillIds = skills;
+		this.skills = skills;
 		this.experience = experience;
 	}
 
@@ -44,20 +49,28 @@ public class Candidate {
 		this.name = name;
 	}
 
-	public List<Integer> getSkillIds() {
-		return skillIds;
-	}
-
-	public void setSkillIds(List<Integer> skillIds) {
-		this.skillIds = skillIds;
-	}
-
 	public int getExperience() {
 		return experience;
 	}
 
 	public void setExperience(int experience) {
 		this.experience = experience;
+	}
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
+	}
+
+	public List<JobDetails> getAppliedJobs() {
+		return appliedJobs;
+	}
+
+	public void setAppliedJobs(List<JobDetails> appliedJobs) {
+		this.appliedJobs = appliedJobs;
 	}
 
 }

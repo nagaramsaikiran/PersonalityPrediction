@@ -1,19 +1,19 @@
 package com.capgemini.personality.service;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.capgemini.personality.entity.Candidate;
+import com.capgemini.personality.model.CandidateDTO;
 
 public interface ICandidateService {
-	public Candidate getCandidate(long id);
+	public CandidateDTO getCandidate(long id);
 	
-	public List<Candidate> getAllCandidates();
+	public List<CandidateDTO> getAllCandidates();
 
-	public Candidate addCandidate(Candidate candidate);
+	public CandidateDTO addCandidate(Candidate candidate);
 
-	public Candidate updateCandidate(Candidate candidate);
+	public CandidateDTO updateCandidate(Candidate candidate);
 
-	public Candidate deleteCandidate(long id);
+	public CandidateDTO deleteCandidate(long id);
 
 }

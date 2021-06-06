@@ -18,8 +18,9 @@ public class JobDetailsUtil {
 		JobDetails jobDetails = new JobDetails();
 		jobDetails.setRole(jobDetailsDTO.getRole());
 		jobDetails.setJobId(jobDetailsDTO.getJobId());
-		jobDetails.setSkillIds(jobDetailsDTO.getSkillIds());
+		jobDetails.setSkills(jobDetailsDTO.getSkills());
 		jobDetails.setExperience(jobDetailsDTO.getExperience());
+		jobDetails.setAppliedCandidates(jobDetailsDTO.getAppliedCandidates());
 		return jobDetails;
 	}
 
@@ -27,8 +28,9 @@ public class JobDetailsUtil {
 		JobDetailsDTO jobdetailsDTO = new JobDetailsDTO();
 		jobdetailsDTO.setRole(jobDetails.getRole());
 		jobdetailsDTO.setJobId(jobDetails.getJobId());
-		jobdetailsDTO.setSkillIds(jobDetails.getSkillIds());
+		jobdetailsDTO.setSkills(jobDetails.getSkills());
 		jobdetailsDTO.setExperience(jobDetails.getExperience());
+		jobdetailsDTO.setAppliedCandidates(jobDetails.getAppliedCandidates());
 		return jobdetailsDTO;
 	}
 

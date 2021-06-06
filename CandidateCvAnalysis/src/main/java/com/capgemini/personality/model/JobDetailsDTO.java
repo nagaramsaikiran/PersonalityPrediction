@@ -2,23 +2,25 @@ package com.capgemini.personality.model;
 
 import java.util.List;
 
+import com.capgemini.personality.entity.Candidate;
 import com.capgemini.personality.entity.Skill;
 
 public class JobDetailsDTO {
 	private long jobId;
 	private String role;
-	private List<Integer> skillIds;
+	private List<Skill> skills;
+	private List<Candidate> appliedCandidates;
 	private int experience;
 
 	public JobDetailsDTO() {
 		super();
 	}
 
-	public JobDetailsDTO(long jobId, String role, List<Integer> skills, int experience) {
+	public JobDetailsDTO(long jobId, String role, List<Skill> skills, int experience) {
 		super();
 		this.jobId = jobId;
 		this.role = role;
-		this.skillIds = skills;
+		this.skills = skills;
 		this.experience = experience;
 	}
 
@@ -38,14 +40,6 @@ public class JobDetailsDTO {
 		this.role = role;
 	}
 
-	public List<Integer> getSkillIds() {
-		return skillIds;
-	}
-
-	public void setSkillIds(List<Integer> skillIds) {
-		this.skillIds = skillIds;
-	}
-
 	public int getExperience() {
 		return experience;
 	}
@@ -53,5 +47,22 @@ public class JobDetailsDTO {
 	public void setExperience(int experience) {
 		this.experience = experience;
 	}
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
+	}
+
+	public List<Candidate> getAppliedCandidates() {
+		return appliedCandidates;
+	}
+
+	public void setAppliedCandidates(List<Candidate> appliedCandidates) {
+		this.appliedCandidates = appliedCandidates;
+	}
+	
 
 }

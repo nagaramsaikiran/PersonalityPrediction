@@ -5,24 +5,27 @@ import java.util.function.Consumer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import org.springframework.stereotype.Repository;
 
 import com.capgemini.personality.entity.Candidate;
 
+@Repository
 public class CandidateDao implements Dao<Candidate> {
+	@PersistenceContext 
 	private EntityManager entityManager;
 
 	@Override
 	public Candidate get(long id) {
-		// TODO Auto-generated method stub
 		return entityManager.find(Candidate.class,id);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Candidate> getAll() {
-		// TODO Auto-generated method stub
-		Query query = entityManager.createQuery("SELECT * FROM Candidate ");
+		Query query = entityManager.createQuery("SELECT c FROM Candidate c ");
 		return query.getResultList();
 	}
 
