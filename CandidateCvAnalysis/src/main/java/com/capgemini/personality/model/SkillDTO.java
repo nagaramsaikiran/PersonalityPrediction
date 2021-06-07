@@ -1,40 +1,29 @@
-package com.capgemini.personality.entity;
+package com.capgemini.personality.model;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
-public class Skill {
-
+public class SkillDTO {
 	private String skillName;
-	@Id
 	private long skillId;
-
-	public Skill() {
+	public SkillDTO() {
 		super();
 	}
-
-	public Skill(String skillName, long skillId) {
+	public SkillDTO(String skillName, long skillId) {
 		super();
 		this.skillName = skillName;
 		this.skillId = skillId;
 	}
-
-	public long getSkillId() {
-		return skillId;
-	}
-
-	public void setSkillId(long id) {
-		this.skillId = id;
-	}
-
-
 	public String getSkillName() {
 		return skillName;
 	}
-
 	public void setSkillName(String skillName) {
 		this.skillName = skillName;
+	}
+	public long getSkillId() {
+		return skillId;
+	}
+	public void setSkillId(long skillId) {
+		this.skillId = skillId;
 	}
 
 }
